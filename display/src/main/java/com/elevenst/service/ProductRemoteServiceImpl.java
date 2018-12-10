@@ -15,7 +15,7 @@ public class ProductRemoteServiceImpl implements ProductRemoteService {
     }
 
     @Override
-    @HystrixCommand(fallbackMethod = "getProductInfoFallback")
+    @HystrixCommand(commandKey = "productInfo", fallbackMethod = "getProductInfoFallback")
     public String getProductInfo(String productId) {
         return this.restTemplate.getForObject(url + productId, String.class);
     }
