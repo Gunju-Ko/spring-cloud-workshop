@@ -15,6 +15,14 @@ hystrix:
       circuitBreaker:
         requestVolumeThreshold: 1   # Minimum number of request to calculate circuit breaker's health. default 20
         errorThresholdPercentage: 50 # Error percentage to open circuit. default 50
+    FeignProductRemoteService#getProductInfo(String):
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 3000   # default 1,000ms
+      circuitBreaker:
+        requestVolumeThreshold: 1   # Minimum number of request to calculate circuit breaker's health. default 20
+        errorThresholdPercentage: 50 # Error percentage to open circuit. default 50
 
 product:
   ribbon:
