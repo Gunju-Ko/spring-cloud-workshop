@@ -27,3 +27,7 @@ eureka:
   client:
     service-url:
       defaultZone: http://127.0.0.1:8761/eureka  # default address
+
+feign:
+  hystrix:
+    enabled: true
