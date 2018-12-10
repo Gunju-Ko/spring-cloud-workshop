@@ -20,7 +20,8 @@ public class ProductRemoteServiceImpl implements ProductRemoteService {
         return this.restTemplate.getForObject(url + productId, String.class);
     }
 
-    public String getProductInfoFallback(String productId) {
+    public String getProductInfoFallback(String productId, Throwable t) {
+        System.out.println("t = " + t);
         return "[ this product is sold out ]";
     }
 }
