@@ -1,5 +1,6 @@
 package com.elevenst.service;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -14,6 +15,7 @@ public class ProductRemoteServiceImpl implements ProductRemoteService {
     }
 
     @Override
+    @HystrixCommand
     public String getProductInfo(String productId) {
         return this.restTemplate.getForObject(url + productId, String.class);
     }
