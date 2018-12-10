@@ -23,7 +23,6 @@ public class DisplayController {
     }
 
     private String getProductInfo() {
-//        return productRemoteService.getProductInfo("12345");
-        return "[unknown]";
+        return productRemoteService.getProductInfo("12345");
     }
 }
