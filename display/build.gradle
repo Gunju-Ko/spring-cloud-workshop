@@ -27,6 +27,7 @@ repositories {
 
 dependencies {
     compile('org.springframework.retry:spring-retry:1.2.2.RELEASE')  // spring cloud requires spring-retry for auto-retry
+    compile('org.springframework.cloud:spring-cloud-starter-openfeign')  // To use Feign
     compile('org.springframework.cloud:spring-cloud-starter-netflix-eureka-client') // 3. To use Eureka client
     compile('org.springframework.cloud:spring-cloud-starter-netflix-ribbon')  // 2. To use ribbon
     compile('org.springframework.cloud:spring-cloud-starter-netflix-hystrix') // 1. To use spring-cloud-hystrix
