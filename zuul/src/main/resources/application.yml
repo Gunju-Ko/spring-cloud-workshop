@@ -1,0 +1,21 @@
+server:
+  port: 8765
+
+zuul:
+  routes:
+    product:
+      path: /products/**
+      serviceId: product
+      stripPrefix: false
+    display:
+      path: /displays/**
+      serviceId: display
+      stripPrefix: false
+
+eureka:
+  instance:
+    non-secure-port: ${server.port}
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
