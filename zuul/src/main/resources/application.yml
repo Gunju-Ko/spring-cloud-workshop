@@ -11,6 +11,10 @@ zuul:
       path: /displays/**
       serviceId: display
       stripPrefix: false
+  ribbon-isolation-strategy: thread
+  thread-pool:
+    use-separate-thread-pools: true
+    thread-pool-key-prefix: zuul-
 
 eureka:
   instance:
@@ -19,3 +23,25 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 1000
+    product:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000
+  threadpool:
+    zuul-product:
+      coreSize: 30
+      maximumSize: 100
+      allowMaximumSizeToDivergeFromCoreSize: true
+    zuul-display:
+      coreSize: 30
+      maximumSize: 100
+      allowMaximumSizeToDivergeFromCoreSize: true
